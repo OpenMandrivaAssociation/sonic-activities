@@ -36,7 +36,11 @@ BuildRequires: cmake(Qt6QuickTest)
 BuildRequires: cmake(Qt6Quick)
 BuildRequires: cmake(Qt6Sql)
 BuildRequires: cmake(KF6Config)
-BuildRequires: cmake(KF6CoreAddons)
+
+# pending rename
+# BuildRequires: cmake(KF6CoreAddons)
+BuildRequires: %{_lib}SonicFrameworksCoreAddons-devel
+
 BuildRequires: %{_lib}SonicFrameworksWindowSystem-devel
 BuildRequires: boost-devel
 BuildSystem: cmake
