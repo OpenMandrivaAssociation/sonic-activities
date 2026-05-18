@@ -78,6 +78,9 @@ Group: Development/C++
 %description doc
 %summary
 
+%install -a
+rm -rf %{buildroot}/%{_libdir}/cmake %{buildroot}/%{_libdir}/pkgconfig
+
 %files
 %{_bindir}/plasma-activities-cli6
 %{_datadir}/qlogging-categories6/plasma-activities.categories
@@ -85,8 +88,10 @@ Group: Development/C++
 
 %files -n %{devname}
 %{_includedir}/PlasmaActivities
-%{_libdir}/cmake/PlasmaActivities
-%{_libdir}/pkgconfig/PlasmaActivities.pc
+
+# pending rename
+# %{_libdir}/cmake/PlasmaActivities
+# %{_libdir}/pkgconfig/PlasmaActivities.pc
 
 %files doc
 %doc %{_qtdir}/doc/PlasmaActivities.*
