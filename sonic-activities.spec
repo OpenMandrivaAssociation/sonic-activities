@@ -7,7 +7,7 @@
 %define gitbranchd %(echo %{gitbranch} | sed -e 's,/,-,g')
 
 Name: sonic-activities
-Version: 6.6.5
+Version: 6.7.3
 Release: %{?git:0.%{git}.}1
 URL:     https://github.com/Sonic-DE/sonic-activities
 # %if 0%{?git:1}
