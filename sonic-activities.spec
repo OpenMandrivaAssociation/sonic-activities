@@ -29,7 +29,6 @@ BuildRequires: cmake(Qt6Qml)
 BuildRequires: cmake(Qt6GuiTools)
 BuildRequires: cmake(Qt6QuickTest)
 BuildRequires: cmake(Qt6DBusTools)
-BuildRequires: doxygen
 BuildRequires: cmake(Qt6ToolsTools)
 BuildRequires: cmake(Qt6)
 BuildRequires: cmake(Qt6QuickTest)
@@ -44,11 +43,13 @@ BuildRequires: %{_lib}SonicFrameworksCoreAddons-devel
 BuildRequires: %{_lib}SonicFrameworksWindowSystem-devel
 BuildRequires: boost-devel
 BuildSystem: cmake
-BuildOption: -DBUILD_QCH:BOOL=ON
+BuildOption: -DBUILD_QCH:BOOL=OFF
 BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 Requires: %{libname} = %{EVRD}
 
 Conflicts:     plasma-activites
+# Docs were removed in Plasma Activities 6.7.
+Obsoletes: %{name}-doc < %{EVRD}
 
 %description
 %summary
@@ -71,13 +72,6 @@ Conflicts:    %{_lib}PlasmaActivities-devel
 %description -n %{devname}
 %summary
 
-%package doc
-Summary: API documentation for %{name} in Qt Assistant format
-Group: Development/C++
-
-%description doc
-%summary
-
 %install -a
 
 %files
@@ -89,9 +83,6 @@ Group: Development/C++
 %{_includedir}/PlasmaActivities
 %{_libdir}/cmake/PlasmaActivities
 %{_libdir}/pkgconfig/PlasmaActivities.pc
-
-%files doc
-%doc %{_qtdir}/doc/PlasmaActivities.*
 
 %files -n %{libname}
 %{_libdir}/libPlasmaActivities.so*
